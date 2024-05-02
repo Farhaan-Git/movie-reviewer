@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie reviewer</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <form action="/search" method="post">
+            <input type="text" name="search" id="seach-input" placeholder="search for the movie by title or IMDB ID">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div id="sort-div" >
+             <div id="sort-container">
+                <form action="/sort" method="post"></form>
+                <button type="submit" value="name">name</button>
+                <button type="submit" value="rating">rating</button>
+                <button type="submit" value="language">language</button>
+        </div>
+    </div>
+    <div id="new" class="new"><button type="submit" onclick="addMovie()">New</button></div>
+    </header>
+    <main>
+        <% for( let i = 0; i < movies.length; i++ ) { %>
+            <div id="movie-component" onclick="showMovie('<%= movies[i].id %>')">
+                <div id="movie-title"><%= movies[i].title %></div>
+                <div id="rating"><%= movies[i].rating %>/10 </div>
+                <div id="language">language : <%= movies[i].language %></div>
+            </div>
+        <% } %>
+        <div class="add-button-container">
+            <button class="add-button" onclick="addMovie()">Add Movie</button>
+        </div>   
+    </main>
+    <script src="https://kit.fontawesome.com/89d1034fc2.js" crossorigin="anonymous"></script>
+    <script>
+        function addMovie(){
+            window.location.href = "/add";
+        }
+        function showMovie(id){
+            console.log("inside ejs "+id);
+            window.location.href = `/movie?id=${id}`;
+        }
+    </script>
+</body>
+</html>

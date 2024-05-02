@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New movie review</title>
+</head>
+<body>
+    <div id="container">
+        <form action="/submit" method="post">
+            <label for="title">Title :</label>
+            <input type="text" name="title" id="input=title" required>
+            <label for="rating">Rate the movie :</label>
+            <input type="range" name="rating" id="rating-input" min="0" max="10">
+            <label for="language">Give the original language of the movie :</label>
+            <input type="text" name="language" id="language-input">
+
+            <textarea name="review" id="review-input" cols="30" rows="10" placeholder="Enter the review of the movie here in detail" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
